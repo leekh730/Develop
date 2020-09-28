@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
-from bs4 import BeautifulSoup
 
 driver = webdriver.Chrome(executable_path='/home/rapa/Documents/Develop/chromedriver')
 driver.get(url="https://www.google.com")
