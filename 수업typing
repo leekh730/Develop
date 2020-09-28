@@ -1,0 +1,35 @@
+[2020.09.28]
+selenium이란 HTML에 동적인 액션을 인간과 유사하게 해주는 Framework. 즉, 예로 네이버 검색창을 자동으로
+검색어를 채워주고 검색하고 미리 코드를 넣어준 자료 또는 이미지를 다운 받는 등의 액션을 해줌
+원래는 프로그래밍을 하고 입력된 코딩이 제대로 작동하는지 브라우저를 통해 테스팅하는 용도였으나 현재는
+스크래핑할때도 많이 사용한다.
+
+device는 장치
+drvier는 장치를 컴퓨터에 연결했을때 해당 장치를 사용하기 위한 다리 역할을 한다. 즉, 컴퓨터와 장치간
+네트워킹이 되야하는데 (서로 간 사용하는 언어(?)가 다르다. 예로 컴퓨터는 영어를 사용, 장치는 한글을 사용하면 드라이버가 통역가 역할을 한다.)
+이를 drvier가 하는 역할이며 장치와 컴퓨터 간 connect이 되도록 한다.
+
+--------------------------------------------------------------------------------------------------------------------------
+구글크롬 브라우저의 버전 확인하는 방법
+cmd창에 google-chrome --version 입력 또는
+google chrome브라우저를 열고 URI창에 chrome://version을 입력
+
+https://chromedriver.storage.googleapis.com/index.html => 본인의 Chrome 버전을 확인하고 동일한 버전의 zip 파일 다운
+
+이후 cmd창에서 Unzip하는 방법
+다운받은 zip파일이 있는 경로로 이동 후 ls 로 해당 zip파일이 있는지 여부 확인
+이후 unzip (zip파일)입력 ex) unzip chromedriver_linux64\ \(1\).zip
+
+압축해제한 파일을 원하는 경로로 이동
+mv ./chromedriver ~/Documents/Develop
+
+이후 ls로 해당 경로로 이동하여 파일이 이동되었는지 확인
+--------------------------------------------------------------------------------------------------------------------------
+
+selenium 설치
+pip3 install selenium => selenium 설치
+python3 => python 실행
+import selenium => selenium import
+selenium.__version__ => selenium version check
+'3.141.0' => version은 다를 수 있음.
+
