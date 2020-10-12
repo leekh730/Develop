@@ -11,15 +11,15 @@ headers = {"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHT
 # end_pg = int(input("End p.g : "))
 
 # for page in range(start_pg,end_pg+1):
-for page in range(1,3):
-    url = base_url.format(page)
-    res = requests.get(url=url, headers=headers)
-    res.raise_for_status() # status_code가 200이 아니면 바로 실행 취소
-    soup = BeautifulSoup(res.text, "lxml")
-    table = soup.find("table", attrs={"class":"list_netizen"})
-    li_num = table.select(selector="td[class]")
-    li_num1 = li_num[0].get_text()
-    print(li_num1)
+# for page in range(1,3):
+#     url = base_url.format(page)
+#     res = requests.get(url=url, headers=headers)
+#     res.raise_for_status() # status_code가 200이 아니면 바로 실행 취소
+#     soup = BeautifulSoup(res.text, "lxml")
+#     table = soup.find("table", attrs={"class":"list_netizen"})
+#     li_num = table.select(selector="td[class]")
+#     li_num1 = li_num[0].get_text()
+#     print(li_num1)
 
     # new_table=[]
     # for tbody in table.find_all('tr')[1:]:
@@ -34,3 +34,13 @@ for page in range(1,3):
     # print(df)
 
 # Connect to SQLite3 DB 
+
+# https://yceffort.kr/2018/11/05/web-crwaling-for-naver-movie/ => 네이버리뷰 스크래핑 참고
+
+
+url = base_url.format(1)
+res = requests.get(url=url, headers=headers)
+res.raise_for_status()
+soup = BeautifulSoup(res.text, 'lxml')
+listnum = soup.find_all("td", attrs={"class":"ac num"})
+print(listnum[0].get_text())
