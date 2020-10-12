@@ -11,9 +11,17 @@ if result.status_code == 200:
 table = soup.find('table', {'class':'wikitable sortable'})
 
 new_table = []
+new_table2 = []
 for row in table.find_all('tr')[1:]:
     columns = row.find_all('td')
     new_table.append([column.get_text() for column in columns])
+    #[column.get_text() for column in columns]
+    # listtmp=[]
+    # for column in columns:
+    #     result = column.get_text()
+    #     listtmp.append(column.get_text())
+    # #new_table.append()
+    # new_table2.append(listtmp)
 
 # for row in table.find_all('tr')[1:]:
 #     columns = row.find_all('td')
