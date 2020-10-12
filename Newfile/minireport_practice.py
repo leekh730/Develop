@@ -5,7 +5,8 @@ import sqlite3
 import time
 
 base_url = "https://movie.naver.com/movie/point/af/list.nhn?&page={}"
-headers = {"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"}
+# headers = {"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"}
+headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"}
 
 # start_pg = int(input("Start p.g : "))
 # end_pg = int(input("End p.g : "))
@@ -42,5 +43,41 @@ url = base_url.format(1)
 res = requests.get(url=url, headers=headers)
 res.raise_for_status()
 soup = BeautifulSoup(res.text, 'lxml')
+
+# 번호만 출력
 listnum = soup.find_all("td", attrs={"class":"ac num"})
-print(listnum[0].get_text())
+# for i in listnum:
+#     print(i.get_text()) 
+
+# 감상평에 영화제목만 출력
+listtitle = soup.find_all("td", attrs={"class":"title"})
+# for i in listtitle:
+#     title = i.find("a", attrs={"class":"movie color_b"}).get_text()
+#     print(title) 
+
+# 별점만 출력
+liststar = soup.find_all("div", attrs={"class":"list_netizen_score"})
+# for i in liststar:
+#     print(i.get_text())
+
+# 댓글만 출력
+listreview = soup.find_all("a", attrs={"class":"report"})
+# for i in listreview:
+#     a = i.get('href').split(',')[2]
+#     print(a)
+
+# 영화제목, 별점, 댓글 출력
+listtext = soup.find_all("td", attrs={"class":"title"})
+# print(listtext[0].get_text())
+# for i in listtext:
+#     text = i.get_text()
+#     a = text.strip()
+#     b = a.replace("신고","")
+#     c = b.strip()
+#     print(c)
+#     time.sleep(5)
+
+# 글쓴이+날짜 출력
+listauthor = soup.find_all("td", attrs={"class":"num"})
+# for i in listauthor[1::2]:
+#    print(i.get_text())
